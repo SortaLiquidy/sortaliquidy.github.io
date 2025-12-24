@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquidy :D</title>
+  <link href="./style.css" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+<body>
+  <div id="clickOverlay">
+    <div id="overlayText">click anywhere<br>pls 🥺</div>
+  </div>
+  <script>
+    const audio = new Audio('https://github.com/RealLiquidy/realliquidy.github.io/raw/refs/heads/main/assets/binksSake.mp3');
+    audio.loop = true;
+    document.getElementById("clickOverlay").addEventListener("click", function () {
+      audio.play();
+      this.style.opacity = "0";
+      setTimeout(() => {
+        this.style.display = "none";
+      }, 1000);
+    });
+  </script>
+  <div id="container">
+    <div id="profileWrapper">
+      <img src="/assets/pfp.png" alt="Profile Picture" id="pfp">
+      <img src="/assets/decoration.gif" alt="Profile Decoration" id="decoration">
+    </div>
+    <h1>Liquidy</h1>
+    <hr>
+    <div id="info">
+      <div id="ageDisplay">Loading age...</div>
+      <script>
+        function calculateAge(birthDate) {
+        const today = new Date();
+        const birthDateObj = new Date(birthDate);
+        let age = today.getFullYear() - birthDateObj.getFullYear();
+        const monthDifference = today.getMonth() - birthDateObj.getMonth();
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDateObj.getDate())) {
+          age--;
+        }
+        return age;
+      }
+      const birthDate = '2011-04-01';
+        document.getElementById('ageDisplay').textContent = `🎂 ${calculateAge(birthDate)}yr`;
+      </script>
+      <p>im lowkey really<br>bored trust<br>👍</p>
+    </div>
+    <hr>
+    <br>
+    <div id="iconsWrapper">
+      <a href="https://discord.com/users/888198655272701993" target="_blank" id="discordIcon" class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24">
+            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"></path>
+        </svg>
+      </a>
+      <a href="https://www.roblox.com/users/1257292059/profile" target="_blank" id="robloxIcon" class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24">
+            <path d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z"></path>
+        </svg>
+      </a>
+    </div>
+    <footer>
+      <p>Made with 💙 by <a id="sourceCode"href="https://github.com/RealLiquidy/realliquidy.github.io" target="_blank" rel="noopener noreferrer">Liquidy</a></p>
+    </footer>
+  </div>
+  <div id="duckContainer">
+  <div id="duckWrapper">
+    <img src="/assets/duck.gif" alt="Duck" id="duck">
+  </div>
+</div>
+  <script>
+  const duck = document.getElementById("duckContainer");
+  const stepDuration = 0.46;
+  const strideLength = 30;
+  function setDuckSpeed() {
+    const distance = window.innerWidth + 300;
+    const stepsNeeded = distance / strideLength;
+    const duration = stepsNeeded * stepDuration;
+    duck.style.animationDuration = `${duration}s`;
+  }
+  window.addEventListener("resize", setDuckSpeed);
+  setDuckSpeed();
+</script>
+</body>
+</html>
