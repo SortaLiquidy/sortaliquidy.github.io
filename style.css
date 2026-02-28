@@ -26,7 +26,7 @@ body {
   cursor: pointer;
   transition: opacity 1s ease;
   -webkit-text-stroke: 1px #002a5c;
-  text-stroke: 1px #002a5c;
+  text-stroke: 3px #002a5c;
 }
 
 #overlayText {
