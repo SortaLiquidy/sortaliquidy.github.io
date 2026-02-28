@@ -58,19 +58,19 @@ body {
 @keyframes neonPulse {
   0%, 100% {
     box-shadow: 
-      0 0 20px #2AADFF,
-      0 0 40px #49CFFF,
-      0 0 80px #2AB0FF,
-      0 0 160px #1F8FFF,
-      0 0 320px #0B5F99;
+      0 0 15px #1e5fa8,
+      0 0 30px #184e8c,
+      0 0 60px #123b6b,
+      0 0 120px #0c2c52,
+      0 0 240px #071a33;
   }
   50% {
     box-shadow: 
-      0 0 10px #2AADFF,
-      0 0 20px #49CFFF,
-      0 0 40px #2AB0FF,
-      0 0 80px #1F8FFF,
-      0 0 160px #0B5F99;
+      0 0 8px #1e5fa8,
+      0 0 16px #184e8c,
+      0 0 30px #123b6b,
+      0 0 60px #0c2c52,
+      0 0 120px #071a33;
   }
 }
 
@@ -116,7 +116,7 @@ h1 {
 hr {
   border: none;
   border-radius: 10px;
-  background-color: #2AADFF;
+  background-color: #006fb4;
   height: 2px;
   width: 50%;
   margin: 20px auto;
@@ -148,10 +148,10 @@ p {
 .icon svg {
   width: 50px;
   height: 50px;
-  fill: #1883da;
+  fill: #1e7ecc;
   margin: 0 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  filter: drop-shadow(0 0 5px rgba(42, 170, 255, 1));
+  filter: drop-shadow(0 0 5px rgba(3, 83, 135));
 }
 
 .icon:hover svg {
@@ -160,15 +160,15 @@ p {
 }
   
 footer {
-  color: black;
+  color: 007fce;
 }
 
 #sourceCode:link {
-  color: #2AADFF;
+  color: #007fce;
 }
 
 #sourceCode:hover {
-  color: #1E72A7;
+  color: #2fafff;
 }
 
 #duckContainer {
