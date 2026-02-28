@@ -116,7 +116,7 @@ h1 {
 hr {
   border: none;
   border-radius: 10px;
-  background-color: #006fb4;
+  background-color: #2d9fe7;
   height: 2px;
   width: 50%;
   margin: 20px auto;
@@ -160,11 +160,11 @@ p {
 }
   
 footer {
-  color: 007fce;
+  color: #129bf0;
 }
 
 #sourceCode:link {
-  color: #007fce;
+  color: #129bf0;
 }
 
 #sourceCode:hover {
