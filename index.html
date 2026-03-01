@@ -95,18 +95,17 @@
   <img id="notJumpscare" src="/assets/notJumpscare.jpg" style="display: none;" />
   <audio id="happyMusic" src="/assets/happyMusic.mp3" preload="auto"></audio>
   <script>
-    const duck = document.getElementById("duckContainer");
     const notJumpscare = document.getElementById("notJumpscare");
     const happyMusic = document.getElementById("happyMusic");
 
     duck.addEventListener("click", function () {
       happyMusic.play();
       notJumpscare.style.display = "block";
-      notJumpscare.style.animation = "jumpscareEnlarge 0.5s forwards, shake 0.5s infinite";
-    
-      setTimeout(function () {
+      notJumpscare.style.animation = "jumpscareEnlarge 0.5s forwards, shake 0.1s linear infinite";
+
+      happyMusic.onended = function() {
         notJumpscare.style.display = "none";
-      }, 500);
+      };
     });
   </script>
   <script>
