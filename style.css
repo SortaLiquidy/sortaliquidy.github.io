@@ -213,12 +213,12 @@ footer {
 }
 
 #duckWrapper {
-  animation: bob 0.46s ease-in-out infinite;
+  animation: bob 0.5s ease-in-out infinite;
 }
 
 #duck {
   position: relative;
-  bottom: 0;
+  bottom: 3.5px;
   width: 45px;
   height: auto;
   display: block;
@@ -230,6 +230,6 @@ footer {
 }
 
 @keyframes bob {
-  0%, 100% { transform: translateY(6px); }
+  0%, 100% { transform: translateY(4px); }
   50%      { transform: translateY(0); }
 }
