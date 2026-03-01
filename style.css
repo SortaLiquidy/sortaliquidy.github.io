@@ -243,20 +243,32 @@ footer {
   object-fit: cover;
   z-index: 10000;
   display: none;
+  pointer-events: none;
+}
+
+.invert {
+  display: block !important;
+  animation: 
+    jumpscareEnlarge 0.2s forwards, 
+    shake 0.05s infinite, 
+    flash 0.1s infinite !important;
+}
+
+@keyframes flash {
+  0% { filter: invert(1) contrast(200%); }
+  50% { filter: invert(0) contrast(100%); }
+  100% { filter: invert(1) contrast(200%); }
 }
 
 @keyframes jumpscareEnlarge {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.2);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
 }
 
 @keyframes shake {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(5px, 5px) rotate(2deg); }
-  50% { transform: translate(-5px, -5px) rotate(-2deg); }
-  75% { transform: translate(5px, -5px) rotate(2deg); }
+  0% { transform: translate(5px, 5px) scale(1.2); }
+  25% { transform: translate(-5px, -10px) scale(1.2); }
+  50% { transform: translate(-10px, 5px) scale(1.2); }
+  75% { transform: translate(5px, -5px) scale(1.2); }
+  100% { transform: translate(-5px, 5px) scale(1.2); }
 }
