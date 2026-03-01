@@ -230,6 +230,38 @@ footer {
 }
 
 @keyframes bob {
-  0%, 100% { transform: translateY(6px); }
+  0%, 100% { transform: translateY(4px); }
   50%      { transform: translateY(0); }
+}
+
+#notJumpscare {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 10000;
+  opacity: 0;
+  animation: jumpscareEnlarge 0.5s forwards, shake 0.5s infinite;
+}
+
+@keyframes jumpscareEnlarge {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(15);
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
 }
