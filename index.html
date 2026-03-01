@@ -100,10 +100,10 @@
 
     duck.addEventListener("click", function () {
       happyMusic.play();
-      notJumpscare.classList.add("scary-active");
+      notJumpscare.classList.add("invert");
 
       happyMusic.onended = function() {
-        notJumpscare.classList.remove("scary-active");
+        notJumpscare.classList.remove("invert");
       };
     });
   </script>
