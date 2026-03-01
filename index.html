@@ -92,18 +92,24 @@
     window.addEventListener("resize", setDuckSpeed);
     setDuckSpeed();
   </script>
-  <img id="notJumpscare" src="/assets/notJumpscare.jpg" style="display: none;" />
+  <img id="notJumpscare" src="/assets/notJumpscare.jpg" />
   <audio id="happyMusic" src="/assets/happyMusic.mp3" preload="auto"></audio>
+
   <script>
     const notJumpscare = document.getElementById("notJumpscare");
     const happyMusic = document.getElementById("happyMusic");
+    const duckBtn = document.getElementById("duck");
 
-    duck.addEventListener("click", function () {
+    duckBtn.addEventListener("click", function () {
+      audio.volume = 0.2;
+      happyMusic.currentTime = 0;
       happyMusic.play();
+      
       notJumpscare.classList.add("invert");
 
       happyMusic.onended = function() {
         notJumpscare.classList.remove("invert");
+        audio.volume = 1.0;
       };
     });
   </script>
