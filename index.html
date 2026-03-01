@@ -100,11 +100,10 @@
 
     duck.addEventListener("click", function () {
       happyMusic.play();
-      notJumpscare.style.display = "block";
-      notJumpscare.style.animation = "jumpscareEnlarge 0.5s forwards, shake 0.1s linear infinite";
+      notJumpscare.classList.add("scary-active");
 
       happyMusic.onended = function() {
-        notJumpscare.style.display = "none";
+        notJumpscare.classList.remove("scary-active");
       };
     });
   </script>
