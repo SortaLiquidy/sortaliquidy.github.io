@@ -165,5 +165,47 @@
       .catch(error => console.error('Error:', error));
     })();
   </script>
+  <script>
+  (function() {
+    var canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9997;';
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    var ripples = [];
+    var raf;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    document.addEventListener('click', function(e) {
+      ripples.push({ x: e.clientX, y: e.clientY, r: 0, alpha: 1.0 });
+      if (!raf) loop();
+    });
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ripples = ripples.filter(function(rp) { return rp.alpha > 0.01; });
+      ripples.forEach(function(rp) {
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(0,200,255,' + rp.alpha + ')';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, rp.r * 0.65, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(0,240,255,' + rp.alpha * 0.5 + ')';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        rp.r += 2;
+        rp.alpha *= 0.94;
+      });
+      raf = ripples.length ? requestAnimationFrame(loop) : null;
+    }
+  })();
+  </script>
 </body>
 </html>
