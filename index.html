@@ -124,7 +124,7 @@
         .then(r => r.json())
         .then(data => {
           if (document.getElementById('visitor-count')) {
-            document.getElementById('visitor-count').textContent = data.count;
+            document.getElementById('visitor-count').textContent = data.data.up_count;
           }
         })
         .catch(error => console.error('Error:', error));
