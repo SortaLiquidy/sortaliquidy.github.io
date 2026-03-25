@@ -118,14 +118,13 @@
       };
     });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
   <script>
     (function() {
-      const counter = new Counter({ workspace: 'liquidy' });
-      counter.up('liquidy-views')
-        .then(result => {
+      fetch('https://api.counterapi.dev/v2/liquidy/liquidy-views/up')
+        .then(r => r.json())
+        .then(data => {
           if (document.getElementById('visitor-count')) {
-            document.getElementById('visitor-count').textContent = result.value;
+            document.getElementById('visitor-count').textContent = data.count;
           }
         })
         .catch(error => console.error('Error:', error));
