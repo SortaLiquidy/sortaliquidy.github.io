@@ -125,14 +125,27 @@
   </script>
   <script>
     (function() {
-      fetch('https://api.counterapi.dev/v2/liquidy/liquidy-views/up')
-        .then(r => r.json())
-        .then(data => {
-          if (document.getElementById('visitor-count')) {
-            document.getElementById('visitor-count').textContent = data.data.up_count;
-          }
-        })
-        .catch(error => console.error('Error:', error));
+      function fingerprint() {
+        const s = [navigator.userAgent, navigator.language,
+          screen.width + 'x' + screen.height, screen.colorDepth,
+          Intl.DateTimeFormat().resolvedOptions().timeZone,
+          navigator.hardwareConcurrency, navigator.platform || ''].join('|');
+        let h = 2166136261;
+        for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+        return (h >>> 0).toString(16);
+      }
+  
+      fetch('https://skipojavomwvgkkauygq.supabase.co/functions/v1/track-visit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fp: fingerprint() })
+      })
+      .then(r => r.json())
+      .then(data => {
+        const el = document.getElementById('visitor-count');
+        if (el) el.textContent = data.count;
+      })
+      .catch(console.error);
     })();
   </script>
   <script>
